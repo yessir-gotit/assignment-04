@@ -9,8 +9,10 @@ let allCard = document.getElementById('allCard');
 const allBtn = document.getElementById('all-filter-btn')
 const interviewBtn = document.getElementById('interview-filter-btn')
 const rejectBtn = document.getElementById('reject-filter-btn')
-
+const emptyState = document.getElementById('empty-state');
 const jobs = document.getElementById('up-menu');
+
+
 function cardCount(){
     all.innerText = allCard.querySelectorAll('.card').length;
     interviewCount.innerText = interviewNum.length;
@@ -35,17 +37,23 @@ function toggleStyle(id) {
     let count = 0;
 
     for (const card of cards) {
+
+        card.classList.add('shadow-md'); 
+        
         const badgeText = card.querySelector('.badge-text').innerText;
 
         if (id === 'all-filter-btn') {
             card.style.display = 'block';
             count++;
         } 
+        
         else if (id === 'interview-filter-btn') {
             if (badgeText === 'INTERVIEWED') {
                 card.style.display = 'block';
                 count++;
-            } else {
+            } 
+            
+            else {
                 card.style.display = 'none';
             }
         } 
@@ -53,10 +61,23 @@ function toggleStyle(id) {
             if (badgeText === 'REJECTED') {
                 card.style.display = 'block';
                 count++;
-            } else {
+            } 
+            
+            else {
                 card.style.display = 'none';
             }
         }
+    }
+
+    if (count === 0) {
+        emptyState.classList.remove('hidden');
+
+        allCard.classList.add('hidden'); 
+    } 
+    
+    else {
+        emptyState.classList.add('hidden');
+        allCard.classList.remove('hidden');
     }
 
     jobs.innerText = `${count} jobs`;
