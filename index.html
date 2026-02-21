@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PH Job Tracker</title>
+    <!-- Daisy UI -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- JS File and CSS file-->
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="styles.css">
+    <!-- DaisyUI Themes -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5/themes.css" rel="stylesheet" type="text/css" />
+
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+</head>
+<body class="w-full max-w-[1110px] p-5 mx-auto">
+    <header>
+        <div>
+            <h1 class="text-4xl font-bold">Job Application Tracker</h1>
+            
+            <div class="grid grid-cols-3 gap-6 mt-8">
+            
+                <div class="stat bg-base-100 shadow-sm border border-base-200 rounded-2xl">
+                    <div class="stat-title font-semibold text-gray-500">Total</div>
+                    <div class="stat-value text-primary text-black">8</div>
+                </div>
+                
+                <div class="stat bg-base-100 shadow-sm border border-base-200 rounded-2xl">
+                    <div class="stat-title font-semibold text-gray-500">Interview</div>
+                    <div class="stat-value text-secondary text-green-600">0</div>
+                </div>
+
+                <div class="stat bg-base-100 shadow-sm border border-base-200 rounded-2xl">
+                    <div class="stat-title font-semibold text-gray-500">Rejected</div>
+                    <div class="stat-value text-error text-red-600">0</div>
+                </div>
+            
+            </div>
+        </div>
+
+        
+    </header>
+
+    <div class="divider"></div>
+
+    <main>
+        <div class="flex justify-between items-center">
+            <h3 class="text-2xl font-bold">Available Jobs</h3>
+            <p class="text-[16px] text-gray-600 font-medium">8 jobs</p>
+        </div>
+
+        <section class="mt-4">
+            <div class="flex gap-2">
+                <button class="btn bg-blue-500 hover:bg-blue-700 text-white border-none px-8 rounded-lg">
+                    All
+                </button>
+
+                <button class="btn btn-outline border-gray-200 text-gray-500 hover:bg-gray-50 hover:text-gray-600 px-8 rounded-lg">
+                    Interview
+                </button>
+
+                <button class="btn btn-outline border-gray-200 text-gray-500 hover:bg-gray-50 hover:text-gray-600 px-8 rounded-lg">
+                    Rejected
+                </button>
+            </div>
+
+
+            <div class="card bg-base-100 border border-base-200 shadow-sm p-6 mb-4 relative mt-5">
+                <button class="btn btn-ghost btn-circle btn-sm absolute right-4 top-4 border border-base-200">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                    </svg>
+                </button>
+
+                <div class="mb-2">
+                    <h2 class="text-[18px] font-bold ">Mobile First Corp</h2>
+                    <p class="text-gray-500 font-medium">React Native Developer</p>
+                </div>
+
+                <div class="flex gap-2 text-sm text-gray-400 mb-4">
+                    <span>Remote</span> • <span>Full-time</span> • <span>$130,000 - $175,000</span>
+                </div>
+
+                <div class="mb-4">
+                    <span class="badge bg-blue-50 text-[#0D2A54] border-none font-bold py-5 px-5 rounded">
+                        NOT APPLIED
+                    </span>
+                </div>
+
+                <p class="text-gray-600 mb-6">
+                    Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.
+                </p>
+
+                <div class="flex gap-3">
+                    <button class="btn btn-outline border-emerald-500 text-emerald-500 hover:bg-emerald-500 hover:text-white px-6">
+                        INTERVIEW
+                    </button>
+                    <button class="btn btn-outline border-red-400 text-red-400 hover:bg-red-400 hover:text-white px-6">
+                        REJECTED
+                    </button>
+                </div>
+            </div>
+        </section>
+        
+    </main>
+</body>
+</html>
