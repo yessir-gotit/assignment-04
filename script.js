@@ -10,7 +10,7 @@ const allBtn = document.getElementById('all-filter-btn')
 const interviewBtn = document.getElementById('interview-filter-btn')
 const rejectBtn = document.getElementById('reject-filter-btn')
 
-
+const jobs = document.getElementById('up-menu');
 function cardCount(){
     all.innerText = allCard.querySelectorAll('.card').length;
     interviewCount.innerText = interviewNum.length;
@@ -20,15 +20,46 @@ function cardCount(){
 cardCount();
 
 
-function toggleStyle(id){
-    [allBtn, interviewBtn, rejectBtn].forEach(btn => {
+function toggleStyle(id) {
+    const buttons = [allBtn, interviewBtn, rejectBtn];
+    for (const btn of buttons) {
         btn.classList.add('border-gray-200', 'text-gray-500');
         btn.classList.remove('bg-blue-500', 'text-white');
-    });
+    }
 
     const selected = document.getElementById(id);
     selected.classList.remove('border-gray-200', 'text-gray-500');
     selected.classList.add('bg-blue-500', 'text-white');
+
+    const cards = allCard.querySelectorAll('.card');
+    let count = 0;
+
+    for (const card of cards) {
+        const badgeText = card.querySelector('.badge-text').innerText;
+
+        if (id === 'all-filter-btn') {
+            card.style.display = 'block';
+            count++;
+        } 
+        else if (id === 'interview-filter-btn') {
+            if (badgeText === 'INTERVIEWED') {
+                card.style.display = 'block';
+                count++;
+            } else {
+                card.style.display = 'none';
+            }
+        } 
+        else if (id === 'reject-filter-btn') {
+            if (badgeText === 'REJECTED') {
+                card.style.display = 'block';
+                count++;
+            } else {
+                card.style.display = 'none';
+            }
+        }
+    }
+
+    jobs.innerText = `${count} jobs`;
 }
 
 
@@ -38,7 +69,10 @@ allCard.addEventListener('click', function(event){
     const isInterviewBtn = target.classList.contains('interview-btn');
     const isRejectBtn = target.classList.contains('reject-btn');
 
-    if(!isInterviewBtn && !isRejectBtn) return;
+    if(!isInterviewBtn && !isRejectBtn){
+        return;
+    }
+        
 
     const parentCard = target.closest('.card');
     const companyName = parentCard.querySelector('.company-name').innerText;
@@ -57,7 +91,7 @@ allCard.addEventListener('click', function(event){
         }
     } 
     
-    
+
     else if (isRejectBtn){
 
         badge.innerText = "REJECTED";
