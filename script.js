@@ -29,6 +29,7 @@ function toggleStyle(id) {
 
     const selected = document.getElementById(id);
     selected.classList.remove('border-gray-200', 'text-gray-500');
+
     selected.classList.add('bg-blue-500', 'text-white');
 
     const cards = allCard.querySelectorAll('.card');
@@ -80,11 +81,14 @@ function toggleStyle(id) {
 allCard.addEventListener('click', function(e) {
     const t = e.target;
     const trash = t.closest('.btn-ghost'); 
+
     const isInt = t.classList.contains('interview-btn');
     const isRej = t.classList.contains('reject-btn');
 
     if (trash && !isInt && !isRej) {
+
         const p = trash.closest('.card');
+
         const name = p.querySelector('.company-name').innerText;
 
         interviewNum = interviewNum.filter(i => i !== name);
@@ -125,8 +129,10 @@ allCard.addEventListener('click', function(e) {
             interviewNum = interviewNum.filter(i => i !== name);
         }
     }
-    
+
     cardCount(); 
     const act = [allBtn, interviewBtn, rejectBtn].find(btn => btn.classList.contains('bg-blue-500')).id;
     toggleStyle(act);
-});
+
+
+})
