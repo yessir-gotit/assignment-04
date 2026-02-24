@@ -18,7 +18,7 @@ const card = document.createElement('div');
 const bunga = document.createElement('p');
 bunga.innerText = 'hey';
 card.appendChild(bunga);
-
+document.body.appendChild(card);
 
 Event Bubbling - when an event happens on a element, it goes/propagates upward through all its ancestors and goes to document then finally window. It's called event bubbling
 
